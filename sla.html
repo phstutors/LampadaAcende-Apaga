@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-color: black;
+        }
+        img{
+            width: 200px;
+        }
+        .light{
+            width: 720px;
+            position: relative;
+            top: 370px;
+            left: -75px;
+        }
+        .lamp{
+            position: absolute;
+            left: 200px;
+            top:0px;
+        }
+        #desligar{
+            position: absolute;
+            left: 720px;
+            font-weight: 700;
+            padding: 6px 20px;
+            display: inline-block;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            text-transform: uppercase;
+            box-shadow: none;
+            background: #22b327;
+            color: #fff;
+            border-color: #22b327;
+            cursor: pointer;
+     }
+        #ligar{
+            position: absolute;
+            left: 720px;
+            font-weight: 700;
+            padding: 6px 20px;
+            display: inline-block;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+            text-transform: uppercase;
+            box-shadow: none;
+            background: #22b327;
+            color: #fff;
+            border-color: #22b327;
+            cursor: pointer;
+        }
+    </style>
+    <div id="cointaner">
+    <img src="lamp.png" class="lamp"></img>
+    <img src="light.png" id="light" class="light"></img>
+    <button type="button" id="ligar" onclick="ligar()">Ligar</button>
+    <button type="button" id="desligar" onclick="desligar()">Desligar</button>
+</div>
+    <script>
+        var cointaner = document.querySelector("#cointaner")
+        var img = document.getElementById("light");
+        var btn = document.getElementById("desligar")
+        var btn2 = document.getElementById("ligar");
+        function desligar(){
+            cointaner.removeChild(img);
+            cointaner.removeChild(btn);
+            cointaner.appendChild(btn2);
+        }    
+        function ligar(){
+            cointaner.appendChild(img);
+            cointaner.removeChild(btn2);
+            cointaner.appendChild(btn);
+        }   
+        </script>
+</body>
+</html>
